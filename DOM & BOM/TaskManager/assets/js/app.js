@@ -14,31 +14,31 @@ const sortD = document.querySelector("#des")
 
 // form submit 
 form.addEventListener('submit', addNewTask);
+
 // Clear All Tasks
 clearBtn.addEventListener('click', clearAllTasks);
+
 //   Filter Task 
-filter.addEventListener('keyup', filterTasks);
+filter.addEventListener('keyup', (e) => {
+    const searchInput = e.target.value.toLowerCase();
+    const listItems = taskList.getElementsByTagName('li');
+    Array.from(listItems).forEach((listItem) => {
+        const listItemTextContext = listItem.textContent;
+        if (listItemTextContext.toLowerCase().indexOf(searchInput) != -1) {
+            listItem.style.display = 'block';
+        } else listItem.style.display = 'none';
+    })
+});
+
 // Remove task event [event delegation]
 taskList.addEventListener('click', removeTask);
+
 // Event Listener for reload 
 reloadIcon.addEventListener('click', reloadPage);
 
-// sortA.addEventListener('click', sortAscending)
-// sortD.addEventListener('click', sortDescending)
-
-
-
-// function sortAscending() {
-//     var collection = Array.from( document.querySelectorAll('.collection-item'))
-//     collection.sort()
-//     collection.forEach((member) => console.log(member.textContent))
-//     // console.log(collection.sort())
-// }
-
-// function sortDescending() {
-
-// }
-
+// Sorting
+sortA.addEventListener('click', sortAscending)
+sortD.addEventListener('click', sortDescending)
 
 // Add New  Task Function definition 
 function addNewTask(e) {
@@ -61,11 +61,16 @@ function addNewTask(e) {
     li.appendChild(document.createTextNode(taskInput.value));
     // Create new element for the link 
     const link = document.createElement('a');
+    const date = document.createElement('a');
     // Add class and the x marker for a 
     link.className = 'delete-item secondary-content';
     link.innerHTML = '<i class="fa fa-remove"></i>';
+
+    date.className = "date"
+    date.innerHTML = new Date()
     // Append link to li
     li.appendChild(link);
+    li.appendChild(date)
     // Append to UL 
     taskList.appendChild(li);
 
@@ -86,43 +91,47 @@ function clearAllTasks() {
 
 }
 
+function sortAscending() {
+    var list, i, switching, b, shouldSwitch;
+    list = document.getElementById("c");
+    switching = true;
+    while (switching) {
+        switching = false;
+        b = list.getElementsByTagName("LI");
+        for (i = 0; i < (b.length - 1); i++) {
+            shouldSwitch = false;
 
-// Filter tasks function definition 
-function filterTasks(e) {
-
-    var searchInput = document.getElementById('filter').value
-    // console.log(searchInput)
-    var collection = document.querySelectorAll('.collection-item')
-    var collectionLength = document.querySelectorAll('.collection-item').length
-
-    let collectionArray = []
-
-    for (const [index, item] of collection.entries()) {
-        // console.log(index, item.textContent)
-        collectionArray[index] = item.textContent
+            if (b[i].lastChild.textContent.toLowerCase() > b[i + 1].lastChild.textContent.toLowerCase()) {
+                shouldSwitch = true;
+                break;
+            }
+        }
+        if (shouldSwitch) {
+            b[i].parentNode.insertBefore(b[i + 1], b[i]);
+            switching = true;
+        }
     }
+}
 
-    // for (let i = 0; i < collectionLength; i++) {
-    //     if (collectionArray[i] == searchInput) {
-    //         // console.log("Found")
-    //         collection[i].style.display = 'block'
-    //         collection[i].style.transition = "all .3s ease-in-out"
-    //         collection[i].style.background = '#b4b4b4'
-    //         setTimeout(() => collection[i].style.background = 'white', 1000)
-    //         return
-    //     }
-    // }
+function sortDescending() {
+    var list, i, switching, b, shouldSwitch;
+    list = document.getElementById("c");
+    switching = true;
+    while (switching) {
+        switching = false;
+        b = list.getElementsByTagName("LI");
+        for (i = 0; i < (b.length - 1); i++) {
+            shouldSwitch = false;
 
-    var index = 0
-    while (index < collectionLength) {
-        // console.log(collection[index].textContent)
-        if (searchInput == '') {
-            collection[index].display = 'block'
-        } else if (searchInput != collection[index].textContent) {
-            console.log(`Not found on index ${index}`)
-            collection[index].style.display = 'none'
-        } else console.log(`Found on index ${index}`)
-        index++
+            if (b[i].lastChild.textContent.toLowerCase() < b[i + 1].lastChild.textContent.toLowerCase()) {
+                shouldSwitch = true;
+                break;
+            }
+        }
+        if (shouldSwitch) {
+            b[i].parentNode.insertBefore(b[i + 1], b[i]);
+            switching = true;
+        }
     }
 }
 
