@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 25px !important;
+    color: aliceblue;
+    text-align: center;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+.numbers{
+    /* background-color: red; */
+    width: max-content;
+    height: max-content;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+}
+
+.num{
+    /* background-color: blue; */
+    padding: 40px;
+    width: 120px;
+    height: fit-content;
+    border: 2px solid white;
+    transition: all .1s ease-in-out;
+}
+
+.num:hover{
+    background-color: #494e55;
+}
+
+
+#result{
+    font-size: 40px !important;
+    height: 70px;
+}
+
+.h{
+    height: 100vh !important;
+}
