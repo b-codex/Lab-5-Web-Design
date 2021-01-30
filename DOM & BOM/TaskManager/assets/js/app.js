@@ -7,6 +7,9 @@ const clearBtn = document.querySelector('.clear-tasks'); //the all task clear bu
 
 const reloadIcon = document.querySelector('.fa'); //the reload button at the top navigation 
 
+const sortA = document.querySelector("#asc")
+const sortD = document.querySelector("#des")
+
 // Add Event Listener  [Form , clearBtn and filter search input ]
 
 // form submit 
@@ -20,8 +23,21 @@ taskList.addEventListener('click', removeTask);
 // Event Listener for reload 
 reloadIcon.addEventListener('click', reloadPage);
 
+// sortA.addEventListener('click', sortAscending)
+// sortD.addEventListener('click', sortDescending)
 
 
+
+// function sortAscending() {
+//     var collection = Array.from( document.querySelectorAll('.collection-item'))
+//     collection.sort()
+//     collection.forEach((member) => console.log(member.textContent))
+//     // console.log(collection.sort())
+// }
+
+// function sortDescending() {
+
+// }
 
 
 // Add New  Task Function definition 
@@ -80,27 +96,33 @@ function filterTasks(e) {
     var collectionLength = document.querySelectorAll('.collection-item').length
 
     let collectionArray = []
-    
-    // console.log(typeof(collection))
 
-    for(const [index, item] of collection.entries()){
+    for (const [index, item] of collection.entries()) {
         // console.log(index, item.textContent)
         collectionArray[index] = item.textContent
     }
 
-    // collectionArray.sort()
+    // for (let i = 0; i < collectionLength; i++) {
+    //     if (collectionArray[i] == searchInput) {
+    //         // console.log("Found")
+    //         collection[i].style.display = 'block'
+    //         collection[i].style.transition = "all .3s ease-in-out"
+    //         collection[i].style.background = '#b4b4b4'
+    //         setTimeout(() => collection[i].style.background = 'white', 1000)
+    //         return
+    //     }
+    // }
 
-    // console.log(collectionArray)
-
-    for(let i = 0; i < collectionLength; i++){
-        if(collectionArray[i] == searchInput){
-            // console.log("Found")
-            collection[i].style.display = 'block'
-            collection[i].style.transition = "all .3s ease-in-out"
-            collection[i].style.background = '#b4b4b4'
-            setTimeout(() => collection[i].style.background = 'white', 1000)
-            return
-        }
+    var index = 0
+    while (index < collectionLength) {
+        // console.log(collection[index].textContent)
+        if (searchInput == '') {
+            collection[index].display = 'block'
+        } else if (searchInput != collection[index].textContent) {
+            console.log(`Not found on index ${index}`)
+            collection[index].style.display = 'none'
+        } else console.log(`Found on index ${index}`)
+        index++
     }
 }
 
