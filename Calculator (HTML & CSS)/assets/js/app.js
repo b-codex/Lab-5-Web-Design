@@ -14,6 +14,10 @@ equal.addEventListener('click', () => {
     var y = eval(x)
     result.innerHTML = y
 
+    if(x.includes('/0')){
+        result.innerHTML = 'Error. Can\'t Divide By Zero.'
+    }
+
     // result.innerHTML = eval(result.innerText)
 })
 

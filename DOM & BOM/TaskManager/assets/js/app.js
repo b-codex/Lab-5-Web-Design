@@ -92,44 +92,44 @@ function clearAllTasks() {
 }
 
 function sortAscending() {
-    var list, i, switching, b, shouldSwitch;
-    list = document.getElementById("c");
+    var listContainer, i, switching, listElements, shouldSwitch;
+    listContainer = document.getElementById("collection");
     switching = true;
     while (switching) {
         switching = false;
-        b = list.getElementsByTagName("LI");
-        for (i = 0; i < (b.length - 1); i++) {
+        listElements = listContainer.getElementsByTagName("LI");
+        for (i = 0; i < (listElements.length - 1); i++) {
             shouldSwitch = false;
 
-            if (b[i].lastChild.textContent.toLowerCase() > b[i + 1].lastChild.textContent.toLowerCase()) {
+            if (listElements[i].lastChild.textContent.toLowerCase() > listElements[i + 1].lastChild.textContent.toLowerCase()) {
                 shouldSwitch = true;
                 break;
             }
         }
         if (shouldSwitch) {
-            b[i].parentNode.insertBefore(b[i + 1], b[i]);
+            listElements[i].parentNode.insertBefore(listElements[i + 1], listElements[i]);
             switching = true;
         }
     }
 }
 
 function sortDescending() {
-    var list, i, switching, b, shouldSwitch;
-    list = document.getElementById("c");
+    var listContainer, i, switching, listElements, shouldSwitch;
+    listContainer = document.getElementById("collection");
     switching = true;
     while (switching) {
         switching = false;
-        b = list.getElementsByTagName("LI");
-        for (i = 0; i < (b.length - 1); i++) {
+        listElements = listContainer.getElementsByTagName("LI");
+        for (i = 0; i < (listElements.length - 1); i++) {
             shouldSwitch = false;
 
-            if (b[i].lastChild.textContent.toLowerCase() < b[i + 1].lastChild.textContent.toLowerCase()) {
+            if (listElements[i].lastChild.textContent.toLowerCase() < listElements[i + 1].lastChild.textContent.toLowerCase()) {
                 shouldSwitch = true;
                 break;
             }
         }
         if (shouldSwitch) {
-            b[i].parentNode.insertBefore(b[i + 1], b[i]);
+            listElements[i].parentNode.insertBefore(listElements[i + 1], listElements[i]);
             switching = true;
         }
     }

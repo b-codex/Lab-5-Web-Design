@@ -5,3 +5,7 @@ i {
 .date{
     display: none;
 }
+
+#dropdownMenu2, input[type=submit], a{
+    color: aliceblue !important;
+}

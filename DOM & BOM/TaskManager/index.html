@@ -60,16 +60,20 @@
                     </div>
                 </div>
                 <div class="card-action">
-                    <h5 id="task-title">List of Tasks</h5>
-                    <div class="dropdown float-right mt-3">
-                        <button class="btn green dropdown-toggle" type="button" id="dropdownMenu2"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Sort
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                            <li><button class="dropdown-item" id="asc" type="button">Ascending</button></li>
-                            <li><button class="dropdown-item" id="des" type="button">Descending</button></li>
-                        </ul>
+                    <div>
+
+                        <h5 id="task-title">List of Tasks</h5>
+                        <div class="dropdown mt-3 d-flex justify-content-end">
+                            <button class="btn green dropdown-toggle" type="button" id="dropdownMenu2"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Sort
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                <li><button class="dropdown-item" id="asc" type="button">Ascending</button></li>
+                                <li><button class="dropdown-item" id="des" type="button">Descending</button></li>
+                            </ul>
+                        </div>
+
                     </div>
                     <div class="input-field col s12">
                         <input type="search" name="filter" id="filter">
@@ -80,7 +84,7 @@
 
                     <!-- <a href="#" class="btn green">Sort Ascending</a>
                     <a href="#" class="btn green">Sort Descending</a> -->
-                    <ul class="collection" id="c">
+                    <ul class="collection" id="collection">
                         <!-- Here is the task list goes  -->
                     </ul>
 

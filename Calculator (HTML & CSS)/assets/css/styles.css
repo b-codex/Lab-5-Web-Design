@@ -47,5 +47,17 @@
 }
 
 #equals{
-    color: aqua;
+    background-color: rgba(14, 218, 218, 0.514);
+}
+
+#equals:hover{
+    background-color: rgba(14, 218, 218, 0.774);
+}
+
+#backspace{
+    background-color: rgba(216, 25, 25, 0.774);
+}
+
+#backspace:hover{
+    background-color: rgba(216, 25, 25, 0.932);
 }
