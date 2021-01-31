@@ -1,7 +1,7 @@
 // Selectors
 const squareRoot = document.querySelector('#squareRoot')
 const factorial = document.querySelector("#factorial")
-const clearEntry = document.querySelector("#clearEntry")
+const clear = document.querySelector("#clear")
 const backspace = document.querySelector("#backspace")
 
 const equal = document.querySelector('#equals')
@@ -13,6 +13,8 @@ equal.addEventListener('click', () => {
     var x = result.innerText.replace(/÷/g, '/')
     var y = eval(x)
     result.innerHTML = y
+
+    // result.innerHTML = eval(result.innerText)
 })
 
 squareRoot.addEventListener('click', () => {
@@ -37,7 +39,7 @@ factorial.addEventListener('click', () => {
 
 })
 
-clearEntry.addEventListener('click', () => {
+clear.addEventListener('click', () => {
     result.innerHTML = ''
 })
 
