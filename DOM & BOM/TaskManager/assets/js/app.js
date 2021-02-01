@@ -92,13 +92,13 @@ function clearAllTasks() {
 }
 
 function sortAscending() {
-    var listContainer, i, switching, listElements, shouldSwitch;
+    var listContainer, switching, listElements, shouldSwitch;
     listContainer = document.getElementById("collection");
     switching = true;
     while (switching) {
         switching = false;
         listElements = listContainer.getElementsByTagName("LI");
-        for (i = 0; i < (listElements.length - 1); i++) {
+        for (let i = 0; i < (listElements.length - 1); i++) {
             shouldSwitch = false;
 
             if (listElements[i].lastChild.textContent.toLowerCase() > listElements[i + 1].lastChild.textContent.toLowerCase()) {
